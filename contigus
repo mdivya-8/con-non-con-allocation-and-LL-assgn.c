@@ -1,0 +1,31 @@
+1.non-contigous memory allocation
+
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*next;
+};
+void main(){
+struct node*node1=(struct node*)malloc(sizeof(struct node));
+node1->data=100;
+node1->next=NULL;
+struct node*node2=(struct node*)malloc(sizeof(struct node));
+node2->data=200;
+node2->next=node1;
+printf("%d %u\n",node1->data,node1->next);
+printf("%d %u\n",node2->data,node2->next);
+
+}
+2.contigous memory allocation
+#include<stdio.h>
+void main(){
+    int arr[5];
+     arr[0]=1;
+     arr[1]=2;
+     arr[2]=3;
+     arr[3]=4;
+     arr[4]=5;
+    printf("%d %d %d %d %d",arr[0],arr[1],arr[2],arr[3],arr[4]);
+    printf("%u %u %u %u %u",&arr[0],&arr[1],&arr[2],&arr[3],&arr[4]);
+}
